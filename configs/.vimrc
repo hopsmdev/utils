@@ -11,6 +11,17 @@ set softtabstop=4 " insert/delete 4 spaces when hitting a TAB/BACKSPACE
 set shiftround    " round indent to multiple of 'shiftwidth'
 set encoding=utf-8
 
+set showcmd     " show command in bottom bar
+set showmatch   " highlight matching
+set incsearch   " search as characters are entered
+set hlsearch    " highlight matches
+
+set foldenable       " enable folding
+nnoremap <space> za  " space open/close folds
+
+
+filetype indent on " load filetype specific indent files
+
 let python_highlight_all = 1 "enable all Python syntax highlighting features
 
 colorscheme ron
