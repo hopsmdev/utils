@@ -11,6 +11,6 @@ set softtabstop=4 " insert/delete 4 spaces when hitting a TAB/BACKSPACE
 set shiftround    " round indent to multiple of 'shiftwidth'
 set encoding=utf-8
 
-
 let python_highlight_all = 1 "enable all Python syntax highlighting features
 
+colorscheme ron
