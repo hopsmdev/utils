@@ -1,0 +1,22 @@
+---
+- hosts: vms
+  become: yes
+  become_method: sudo
+  tasks:
+  - name: install epel repository
+    yum: name=epel-release update_cache=yes
+
+  - name: install docker
+    yum: name=docker update_cache=yes
+
+  - name: install vim
+    yum: name=vim update_cache=yes
+
+  - name: install python
+    yum: name=python update_cache=yes
+
+  - name: install pip
+    yum: name=python-pip update_cache=yes
+
+  - name: install virtualenv
+    pip: name=virtualenv
