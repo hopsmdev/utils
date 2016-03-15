@@ -1,0 +1,21 @@
+- name: configure /etc/vimrc
+  lineinfile: dest=/etc/vimrc line="{{ item }}"
+  with_items:
+  - syntax enable
+  - set number
+  - set autoindent
+  - set shiftwidth=4
+  - set cursorline
+  - set showmatch
+  - set textwidth=79
+  - set tabstop=4
+  - set expandtab
+  - set softtabstop=4
+  - set shiftround
+  - set encoding=utf-8
+  - set showcmd
+  - set showmatch
+  - set incsearch
+  - set hlsearch
+  - filetype indent on
+  - colorscheme ron

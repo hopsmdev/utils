@@ -1,0 +1,33 @@
+- name: install powerline
+  pip: name='git+git://github.com/Lokaltog/powerline#egg=powerline'
+
+- name: download Powerline fonts
+  get_url: url={{ item }} dest=/usr/share/fonts/
+  with_items:
+  - https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
+
+- name: install fontconfig file
+  get_url: url=https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
+           dest=/etc/fonts/conf.d/
+
+- name: update system's font cache
+  command: fc-cache -vf /usr/share/fonts
+
+- name: debug
+  debug: msg="{{ lookup('env','HOME') }}/.bashrc"
+
+- name: setting powerline on bash shell
+  lineinfile: dest=/etc/bashrc line="{{ item }}"
+  with_items:
+  - export TERM="screen-256color"
+  - powerline-daemon -q
+  - POWERLINE_BASH_CONTINUATION=1
+  - POWERLINE_BASH_SELECT=1
+  - . /usr/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
+
+- name: enable powerline for vim
+  lineinfile: dest=/etc/vimrc line="{{ item }}"
+  with_items:
+  - set rtp+=/usr/lib/python2.7/site-packages/powerline/bindings/vim/
+  - set laststatus=2
+  - set t_Co=256

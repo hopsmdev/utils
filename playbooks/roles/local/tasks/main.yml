@@ -1,0 +1,21 @@
+- name: add google-chrome repository
+  copy: src=google-chrome.repo
+        dest=/etc/yum.repos.d/
+        owner=root group=root mode=0644
+        
+- name: install google-chrome browser
+  dnf: name=google-chrome
+
+- name: install basic packages on local Fedora system
+  dnf: name={{ item }}
+  with_items:
+      - vim
+      - python
+      - python-pip
+      - docker
+      - git
+      - vagrant
+      - libselinux-python
+
+- include: vim.yml
+- include: powerline.yml
