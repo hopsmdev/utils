@@ -6,7 +6,7 @@
 - name: install google-chrome browser
   dnf: name=google-chrome
 
-- name: install basic packages on local Fedora system
+- name: install useful packages on local Fedora system
   dnf: name={{ item }}
   with_items:
       - vim
@@ -16,6 +16,7 @@
       - git
       - vagrant
       - libselinux-python
+      - powertop
 
 - include: vim.yml
 - include: powerline.yml
