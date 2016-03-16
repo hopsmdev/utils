@@ -17,6 +17,8 @@
       - vagrant
       - libselinux-python
       - powertop
+      - htop
+      - pydf
 
 - include: vim.yml
 - include: powerline.yml
