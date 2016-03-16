@@ -13,9 +13,6 @@
 - name: update system's font cache
   command: fc-cache -vf /usr/share/fonts
 
-- name: debug
-  debug: msg="{{ lookup('env','HOME') }}/.bashrc"
-
 - name: setting powerline on bash shell
   lineinfile: dest=/etc/bashrc line="{{ item }}"
   with_items:
